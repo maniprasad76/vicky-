@@ -134,26 +134,26 @@
   }
 
   .display-title {
-    font-size: clamp(2rem, 12vw, 4rem);
+    font-size: clamp(1.8rem, 8vw, 3rem);
   }
 
   .floating-badge {
-    margin-bottom: 1rem;
-    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.75rem;
   }
 
   .hero-bottom {
-    gap: 1.5rem;
-    padding-bottom: 8vh;
+    gap: 1rem;
+    padding-bottom: 6vh;
   }
 
   .hero-description {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
 
   .btn-modern {
-    padding: 1rem 2rem;
-    font-size: 1rem;
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
     align-self: flex-start;
   }
 }

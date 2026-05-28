@@ -122,4 +122,16 @@
   .nav-link {
     font-size: 1.5rem;
   }
+
+  .header {
+    padding: 1rem 0;
+  }
+
+  .header.scrolled {
+    padding: 0.5rem 0;
+  }
+
+  .logo {
+    font-size: 1.4rem;
+  }
 }
