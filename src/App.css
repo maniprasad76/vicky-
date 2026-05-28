@@ -1,0 +1,6 @@
+/* App specific styles are minimal as we use modular CSS or global utilities */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}

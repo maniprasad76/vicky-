@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap');
+
+:root {
+  /* High Contrast Light Theme */
+  --bg-primary: #FFFDEB;
+  --bg-secondary: #F0FFC2;
+  --bg-tertiary: #FFCEE3;
+  
+  --text-primary: #1a1a1a;
+  --text-secondary: #5a5a5a;
+  --text-inverse: #1a1a1a;
+
+  /* Vibrant Accents */
+  --accent-primary: #e85d97; /* A darker pink for contrast against the light bg */
+  --accent-hover: #c94078;
+  --accent-secondary: #8da142; /* Darker green/lime for contrast */
+  
+  /* Borders & Shadows */
+  --border-color: rgba(0, 0, 0, 0.08);
+  --shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.06);
+  --shadow-glow: 0 0 15px rgba(255, 206, 227, 0.8);
+
+  /* Transitions */
+  --transition-fast: 0.2s ease-in-out;
+  --transition-smooth: 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Typography Utilities */
+.text-accent {
+  color: var(--accent-primary);
+}
+
+.text-gradient {
+  background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Layout Utilities */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.section-padding {
+  padding: 6rem 0;
+}
+
+/* Micro Animations */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.8s var(--transition-smooth) forwards;
+}
+
+/* Glassmorphism */
+.glass-panel {
+  background: rgba(255, 253, 235, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+}
