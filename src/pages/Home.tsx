@@ -1,4 +1,3 @@
-import React from 'react';
 import HeroSection from '../components/HeroSection';
 import SisAndBro from '../components/SisAndBro';
 import OurStory from '../components/OurStory';

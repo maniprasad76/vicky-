@@ -1,13 +1,12 @@
-import React from 'react';
 import styles from './Timeline.module.css';
 import { events } from '../data/timelineData.js';
 
-const getCardStyle = (index) => {
+const getCardStyle = (index: number) => {
   const styles = ['card-pink', 'card-lime', 'card-white'];
   return styles[index % styles.length];
 };
 
-const getDotStyle = (index) => {
+const getDotStyle = (index: number) => {
   const styles = ['dot-pink', 'dot-lime'];
   return styles[index % styles.length];
 };

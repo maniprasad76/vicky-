@@ -1,4 +1,3 @@
-import React from 'react';
 import styles from './SisAndBro.module.css';
 import siblingsImg from '../assets/sis&bro.png';
 

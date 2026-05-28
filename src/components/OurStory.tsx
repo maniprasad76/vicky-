@@ -1,4 +1,3 @@
-import React from 'react';
 import styles from './OurStory.module.css';
 import ourStoryImg from '../assets/our story.png';
 

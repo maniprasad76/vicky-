@@ -1,4 +1,3 @@
-import React from 'react';
 import styles from './HeroSection.module.css';
 import { HashLink as Link } from 'react-router-hash-link';
 
