@@ -168,3 +168,27 @@
     left: -10px;
   }
 }
+
+@media (max-width: 768px) {
+  .timeline-content {
+    padding: 1.5rem;
+  }
+
+  .year-watermark {
+    font-size: 4rem;
+    bottom: 5px;
+    right: 5px;
+  }
+
+  .timeline-item {
+    padding-left: 45px;
+  }
+
+  .timeline-container::before {
+    left: 15px;
+  }
+
+  .timeline-dot {
+    left: 5px;
+  }
+}

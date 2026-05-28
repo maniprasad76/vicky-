@@ -4,6 +4,7 @@ import { HashLink as Link } from 'react-router-hash-link';
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,23 +18,42 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
+
   return (
     <header className={`${styles.header} ${scrolled ? `${styles.scrolled} glass-panel` : ''}`}>
       <div className={`container ${styles['header-content']}`}>
-        <Link to="/#" className={styles.logo} aria-label="Vicky's Fam Homepage">
+        <Link to="/#" className={styles.logo} aria-label="Vicky's Fam Homepage" onClick={closeMenu}>
           VICKY'S <span className="text-accent">FAM</span>
         </Link>
-        <nav className={styles['nav-links']}>
-          <Link to="/#hero" className={styles['nav-link']}>
+
+        <button
+          className={`${styles['mobile-menu-btn']} ${isMenuOpen ? styles.open : ''}`}
+          onClick={toggleMenu}
+          aria-label="Toggle navigation menu"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <nav className={`${styles['nav-links']} ${isMenuOpen ? styles['nav-open'] : ''}`}>
+          <Link to="/#hero" className={styles['nav-link']} onClick={closeMenu}>
             Home
           </Link>
-          <Link to="/#members" className={styles['nav-link']}>
+          <Link to="/#members" className={styles['nav-link']} onClick={closeMenu}>
             Members
           </Link>
-          <Link to="/#siblings" className={styles['nav-link']}>
+          <Link to="/#siblings" className={styles['nav-link']} onClick={closeMenu}>
             Siblings
           </Link>
-          <Link to="/#timeline" className={styles['nav-link']}>
+          <Link to="/#timeline" className={styles['nav-link']} onClick={closeMenu}>
             Timeline
           </Link>
         </nav>

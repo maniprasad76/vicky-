@@ -128,6 +128,36 @@
   }
 }
 
+@media (max-width: 768px) {
+  .hero-container {
+    padding-top: 4vh;
+  }
+
+  .display-title {
+    font-size: clamp(2rem, 12vw, 4rem);
+  }
+
+  .floating-badge {
+    margin-bottom: 1rem;
+    font-size: 0.8rem;
+  }
+
+  .hero-bottom {
+    gap: 1.5rem;
+    padding-bottom: 8vh;
+  }
+
+  .hero-description {
+    font-size: 1rem;
+  }
+
+  .btn-modern {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    align-self: flex-start;
+  }
+}
+
 .hero-description {
   max-width: 450px;
   font-size: 1.2rem;

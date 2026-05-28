@@ -80,6 +80,15 @@ a {
   padding: 6rem 0;
 }
 
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+  }
+  .section-padding {
+    padding: 3rem 0;
+  }
+}
+
 /* Micro Animations */
 @keyframes fadeUp {
   from {
