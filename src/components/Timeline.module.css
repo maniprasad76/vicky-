@@ -18,7 +18,12 @@
   left: 20px;
   height: 100%;
   width: 4px;
-  background: linear-gradient(to bottom, var(--accent-primary), var(--accent-secondary), var(--accent-primary));
+  background: linear-gradient(
+    to bottom,
+    var(--accent-primary),
+    var(--accent-secondary),
+    var(--accent-primary)
+  );
   border-radius: 4px;
 }
 
@@ -57,10 +62,12 @@
 .timeline-content {
   padding: 3rem;
   border-radius: 30px;
-  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
+  transition:
+    transform var(--transition-smooth),
+    box-shadow var(--transition-smooth);
   position: relative;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
 }
 
 .timeline-item:hover .timeline-content {
@@ -68,9 +75,18 @@
   box-shadow: var(--shadow-glow);
 }
 
-.card-pink { background: var(--bg-tertiary); border: 1px solid rgba(255,255,255,0.6); }
-.card-lime { background: var(--bg-secondary); border: 1px solid rgba(0,0,0,0.03); }
-.card-white { background: white; border: 1px solid rgba(232, 93, 151, 0.1); }
+.card-pink {
+  background: var(--bg-tertiary);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+.card-lime {
+  background: var(--bg-secondary);
+  border: 1px solid rgba(0, 0, 0, 0.03);
+}
+.card-white {
+  background: white;
+  border: 1px solid rgba(232, 93, 151, 0.1);
+}
 
 .year-watermark {
   position: absolute;
@@ -78,7 +94,7 @@
   bottom: -20px;
   font-size: clamp(6rem, 10vw, 10rem);
   font-weight: 800;
-  color: rgba(0,0,0,0.04);
+  color: rgba(0, 0, 0, 0.04);
   line-height: 1;
   z-index: 0;
   pointer-events: none;

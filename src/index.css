@@ -2,10 +2,10 @@
 
 :root {
   /* High Contrast Light Theme */
-  --bg-primary: #FFFDEB;
-  --bg-secondary: #F0FFC2;
-  --bg-tertiary: #FFCEE3;
-  
+  --bg-primary: #fffdeb;
+  --bg-secondary: #f0ffc2;
+  --bg-tertiary: #ffcee3;
+
   --text-primary: #1a1a1a;
   --text-secondary: #5a5a5a;
   --text-inverse: #1a1a1a;
@@ -14,7 +14,7 @@
   --accent-primary: #e85d97; /* A darker pink for contrast against the light bg */
   --accent-hover: #c94078;
   --accent-secondary: #8da142; /* Darker green/lime for contrast */
-  
+
   /* Borders & Shadows */
   --border-color: rgba(0, 0, 0, 0.08);
   --shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.06);
@@ -40,7 +40,12 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: 800;
   line-height: 1.1;
   margin-bottom: 1rem;
@@ -98,4 +103,16 @@ a {
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--border-color);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

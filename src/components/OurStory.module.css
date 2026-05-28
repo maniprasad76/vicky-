@@ -27,7 +27,9 @@
   padding: 3rem;
   border-radius: 30px;
   position: relative;
-  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
+  transition:
+    transform var(--transition-smooth),
+    box-shadow var(--transition-smooth);
 }
 
 .story-card:hover {
@@ -38,7 +40,7 @@
 .card-1 {
   background: var(--bg-tertiary); /* Soft Pink */
   color: var(--text-primary);
-  border: 1px solid rgba(255,255,255,0.5);
+  border: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 @media (min-width: 992px) {
@@ -79,7 +81,7 @@
 .card-2 {
   background: var(--bg-secondary); /* Pale Lime */
   color: var(--text-primary);
-  border: 1px solid rgba(0,0,0,0.05);
+  border: 1px solid rgba(0, 0, 0, 0.05);
   box-shadow: var(--shadow-subtle);
 }
 
@@ -95,7 +97,7 @@
   overflow: hidden;
   display: flex;
   box-shadow: var(--shadow-subtle);
-  border: 1px solid rgba(0,0,0,0.05);
+  border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .story-img {
@@ -136,6 +138,11 @@
 }
 
 @keyframes gentle-beat {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.15); }
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.15);
+  }
 }
