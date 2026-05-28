@@ -1,125 +1,140 @@
-.siblings-fullscreen-section {
+.siblings-section {
   position: relative;
-  min-height: 85vh;
-  display: block; /* Allow absolute positioning inside to stretch */
   overflow: hidden;
-  margin: 0;
-}
-
-/* Background setup */
-.siblings-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-}
-
-.siblings-bg-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-}
-
-.siblings-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  /* A very light darkening just at the bottom to ensure the text card is legible */
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.4) 100%);
-}
-
-/* Content layout */
-.siblings-content {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
   z-index: 1;
-  padding: 3rem 2rem;
+}
+
+.siblings-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+@media (max-width: 991px) {
+  .siblings-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
+
+/* Left Content */
+.siblings-left {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end; /* Push all content to the bottom */
-  align-items: flex-start; /* Align it to the left */
-  pointer-events: none; /* Let clicks pass through if needed */
+  gap: 2rem;
 }
 
 .siblings-header {
-  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .siblings-title {
-  font-size: clamp(2rem, 5vw, 4rem);
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
   font-weight: 800;
-  color: #ffffff;
+  text-transform: uppercase;
   margin: 0;
-  letter-spacing: -1px;
-  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+  letter-spacing: -0.02em;
 }
 
 .siblings-subtitle {
-  font-size: 1.1rem;
-  color: rgba(255, 255, 255, 0.9);
-  margin: 0;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-  font-weight: 500;
+  font-size: 1.2rem;
+  color: var(--accent-cyan);
+  font-weight: 600;
+  text-shadow: 0 0 10px var(--accent-cyan-glow);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
-.siblings-message {
-  max-width: 450px;
-  width: 100%;
-  margin: 0;
-  padding: 1.5rem 2rem;
-  border-radius: 20px;
-  /* Dark, elegant, minimal glass box so it doesn't distract from the photo */
-  background: rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  text-align: left;
+.siblings-card {
+  padding: 2.5rem;
+  border-radius: 20px !important;
+  border-color: rgba(255, 0, 127, 0.15) !important;
   position: relative;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  pointer-events: auto; /* Re-enable pointer events for the box */
 }
 
-.quote-mark-small {
+.siblings-card::before {
+  content: '';
   position: absolute;
-  top: -5px;
-  left: 10px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent-primary), var(--accent-cyan));
+}
+
+.quote-mark {
+  position: absolute;
+  top: 0rem;
+  left: 1.5rem;
   font-size: 4rem;
-  color: rgba(255, 255, 255, 0.15);
+  color: rgba(255, 0, 127, 0.15);
   font-family: serif;
   line-height: 1;
 }
 
-.siblings-message p {
-  font-size: 0.95rem;
+.siblings-card p {
+  font-size: 1.1rem;
   line-height: 1.7;
-  color: rgba(255, 255, 255, 0.95);
+  color: var(--text-secondary);
   margin: 0;
-  position: relative;
   z-index: 1;
-  font-style: italic;
-  font-weight: 400;
+  position: relative;
+}
+
+/* Right Content */
+.siblings-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.rings-canvas-wrapper {
+  width: 100%;
+  max-width: 400px;
+  aspect-ratio: 1;
+  background: radial-gradient(circle, rgba(57, 255, 20, 0.05) 0%, transparent 70%);
+  border-radius: 24px;
+  border: 1px dashed rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.5);
+}
+
+.image-frame-3d {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 20px !important;
+  border-color: rgba(57, 255, 20, 0.15) !important;
+  padding: 8px;
+  overflow: hidden;
+}
+
+.siblings-img {
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+  display: block;
+  transition: transform var(--transition-smooth);
+}
+
+.image-frame-3d:hover .siblings-img {
+  transform: scale(1.03);
 }
 
 @media (max-width: 768px) {
-  .siblings-content {
-    padding: 2rem 1rem;
+  .siblings-card {
+    padding: 1.75rem;
   }
 
-  .siblings-message {
-    padding: 1rem 1.2rem;
-  }
-
-  .quote-mark-small {
-    font-size: 3rem;
-    top: -2px;
-    left: 5px;
+  .rings-canvas-wrapper,
+  .image-frame-3d {
+    max-width: 320px;
   }
 }
