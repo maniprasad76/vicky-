@@ -40,7 +40,7 @@ const ThreePhotoCube: React.FC = () => {
     dirLight.castShadow = true;
     scene.add(dirLight);
 
-    const pointLight = new THREE.PointLight(0x00f0ff, 1.5, 10);
+    const pointLight = new THREE.PointLight(0xd4af37, 2.2, 10);
     pointLight.position.set(-3, -3, 2);
     scene.add(pointLight);
 
@@ -92,13 +92,13 @@ const ThreePhotoCube: React.FC = () => {
     cube.receiveShadow = true;
     scene.add(cube);
 
-    // Glowing Hologram border around the cube
+    // Glowing border around the cube
     const wireframeGeom = new THREE.BoxGeometry(2.05, 2.05, 2.05);
     const wireframeMat = new THREE.MeshBasicMaterial({
-      color: 0x39ff14,
+      color: 0xd4af37,
       wireframe: true,
       transparent: true,
-      opacity: 0.3,
+      opacity: 0.35,
       blending: THREE.AdditiveBlending,
     });
     const wireframeCube = new THREE.Mesh(wireframeGeom, wireframeMat);
@@ -265,7 +265,7 @@ const ThreePhotoCube: React.FC = () => {
         >
           <div className="pulse-dot" style={{ width: '20px', height: '20px' }}></div>
           <span style={{ fontFamily: 'Outfit', fontWeight: 600, letterSpacing: '0.05em' }}>
-            INITIATING 3D PROJECTION...
+            LOADING FAMILY MEMORIES...
           </span>
         </div>
       )}

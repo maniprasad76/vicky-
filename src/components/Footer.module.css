@@ -1,6 +1,6 @@
 .footer {
-  background-color: rgba(10, 9, 21, 0.95);
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  background-color: rgba(224, 242, 254, 0.6);
+  border-top: 1px solid rgba(255, 255, 255, 0.45);
   padding: 5rem 0 2rem;
   position: relative;
   z-index: 1;
@@ -20,9 +20,11 @@
 }
 
 .footer-brand h2 {
-  font-family: 'Outfit', sans-serif;
-  font-size: 2rem;
+  font-family: 'Dancing Script', cursive;
+  font-size: 2.2rem;
   margin-bottom: 0.5rem;
+  font-weight: 700;
+  text-transform: none;
 }
 
 .footer-brand p {
@@ -30,12 +32,13 @@
 }
 
 .footer-links h3 {
-  font-family: 'Outfit', sans-serif;
+  font-family: 'Dancing Script', cursive;
   font-size: 1.2rem;
   margin-bottom: 1rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: var(--text-primary);
+  font-weight: 700;
 }
 
 .footer-links ul {
@@ -53,15 +56,15 @@
 }
 
 .footer-links a:hover {
-  color: var(--accent-cyan);
-  text-shadow: 0 0 8px var(--accent-cyan-glow);
+  color: var(--accent-primary);
+  text-shadow: 0 0 8px var(--accent-primary-glow);
 }
 
 .footer-bottom {
   text-align: center;
   padding-top: 2rem;
   margin-top: 4rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
   color: var(--text-muted);
   font-size: 0.85rem;
   letter-spacing: 0.02em;

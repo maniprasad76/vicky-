@@ -14,46 +14,52 @@ const HeroSection: React.FC = () => {
             {/* Floating Badge */}
             <div className={styles['floating-badge']}>
               <span className="pulse-dot"></span>
-              Digital Family Core
+              Family Legacy Archive
             </div>
 
-            {/* Huge Futuristic Typography */}
+            {/* Huge Serif Typography with cursive highlights */}
             <div className={styles['title-wrapper']}>
               <h1 className={styles['display-title']}>
-                THE <span className={styles['outline-text']}>FAMILY</span>
+                Our{' '}
+                <span
+                  className={`${styles['gold-text']} cursive-font`}
+                  style={{ textTransform: 'none' }}
+                >
+                  Family
+                </span>
               </h1>
               <h1 className={styles['display-title']}>
-                LEGACY <span className="text-accent">&</span> MEMORIES
+                Legacy <span className="text-accent">&</span> Stories
               </h1>
             </div>
 
             <p className={styles['hero-description']}>
-              Stepping into the future while honoring our roots. An interactive, 3D-projected
-              digital home celebrating our past, present, and tomorrow.
+              Honoring our roots, celebrating our present, and embracing our tomorrow. An
+              interactive scrapbook of our shared love, laughter, and unbreakable connections.
             </p>
 
             <div className={styles['hero-actions']}>
               <Link to="/#members" className="btn-cyber">
-                Enter Projection <span style={{ marginLeft: '0.5rem' }}>→</span>
+                Explore Memories <span style={{ marginLeft: '0.5rem' }}>→</span>
               </Link>
             </div>
           </div>
 
-          {/* Right Column: 3D Hologram Cube Visual */}
+          {/* Right Column: Tilted Memory Card Visual */}
           <div
             className={`${styles['hero-visual-wrapper']} animate-fade-up`}
             style={{ animationDelay: '0.3s' }}
           >
             <Interactive3DCard className={styles['hero-3d-card']} maxTilt={15}>
-              <div className={styles['visual-badge']}>PROJ // 01</div>
+              <div className={styles['visual-badge']}>EST. 1985</div>
 
-              {/* Floating Core */}
+              {/* Floating 3D Gold Heart */}
               <FloatingThreeDObject />
 
               <div className={styles['visual-footer']}>
-                <span className={styles['visual-title']}>Core Network</span>
+                <span className={styles['visual-title']}>Family Heart</span>
                 <span className={styles['visual-status']}>
-                  <span className="pulse-dot"></span> ACTIVE
+                  <span className="pulse-dot"></span> UNITED
                 </span>
               </div>
             </Interactive3DCard>

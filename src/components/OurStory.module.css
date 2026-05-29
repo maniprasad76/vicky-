@@ -23,19 +23,22 @@
 }
 
 .story-card {
-  padding: 3rem;
-  border-radius: 24px !important;
+  padding: 1.5rem 0;
+  border-radius: 0;
   position: relative;
 }
 
 .card-1 {
-  border-color: rgba(255, 0, 127, 0.25) !important;
-  box-shadow: 0 8px 32px 0 rgba(255, 0, 127, 0.08);
+  border: none !important;
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  box-shadow: none !important;
 }
 
 .card-1:hover {
-  border-color: var(--accent-primary) !important;
-  box-shadow: 0 8px 32px 0 rgba(255, 0, 127, 0.25) !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
 @media (min-width: 992px) {
@@ -46,9 +49,9 @@
 }
 
 .card-1 .lead-text {
-  font-family: 'Outfit', sans-serif;
+  font-family: 'Dancing Script', cursive;
   font-size: clamp(1.4rem, 2.5vw, 2.2rem);
-  font-weight: 600;
+  font-weight: 700;
   font-style: italic;
   margin: 0;
   position: relative;
@@ -61,7 +64,7 @@
   top: -15px;
   left: 20px;
   font-size: 6rem;
-  color: rgba(255, 0, 127, 0.15);
+  color: rgba(217, 119, 6, 0.1);
   font-family: serif;
   line-height: 1;
   z-index: 0;
@@ -75,13 +78,16 @@
 }
 
 .card-2 {
-  border-color: rgba(0, 240, 255, 0.25) !important;
-  box-shadow: 0 8px 32px 0 rgba(0, 240, 255, 0.08);
+  border: none !important;
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  box-shadow: none !important;
 }
 
 .card-2:hover {
-  border-color: var(--accent-cyan) !important;
-  box-shadow: 0 8px 32px 0 rgba(0, 240, 255, 0.25) !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
 .card-2 p {
@@ -91,12 +97,23 @@
   color: var(--text-secondary);
 }
 
+/* Polaroid physical photo card styling */
 .card-image {
-  padding: 8px;
-  border-radius: 24px !important;
-  border-color: rgba(255, 255, 255, 0.1) !important;
+  background-color: #faf8f5 !important;
+  border: 1px solid #eae5dc !important;
+  padding: 16px 16px 56px 16px !important;
+  box-shadow: 0 15px 35px rgba(15, 23, 42, 0.08) !important;
+  border-radius: 4px !important;
+  position: relative;
+  transform: rotate(1.2deg);
   overflow: hidden;
   display: flex;
+  flex-direction: column;
+  transition: transform var(--transition-bounce) !important;
+}
+
+.card-image:hover {
+  transform: rotate(0deg) scale(1.02);
 }
 
 .story-img {
@@ -104,17 +121,29 @@
   height: 100%;
   object-fit: cover;
   min-height: 250px;
-  border-radius: 16px;
-  transition: transform var(--transition-smooth);
+  border-radius: 2px;
+  display: block;
 }
 
-.card-image:hover .story-img {
-  transform: scale(1.03);
+.polaroid-caption {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #4a4238;
+  text-align: center;
+  position: absolute;
+  bottom: 12px;
+  left: 0;
+  width: 100%;
+  letter-spacing: 0.5px;
 }
 
 .card-3 {
-  border-color: rgba(57, 255, 20, 0.25) !important;
-  box-shadow: 0 8px 32px 0 rgba(57, 255, 20, 0.08);
+  border: none !important;
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  box-shadow: none !important;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -123,8 +152,8 @@
 }
 
 .card-3:hover {
-  border-color: var(--accent-secondary) !important;
-  box-shadow: 0 8px 32px 0 rgba(57, 255, 20, 0.25) !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
 @media (min-width: 992px) {
@@ -146,7 +175,7 @@
   margin-bottom: 1rem;
   display: block;
   animation: gentle-beat 2s infinite alternate;
-  filter: drop-shadow(0 0 10px rgba(255, 0, 127, 0.6));
+  filter: drop-shadow(0 0 10px rgba(244, 63, 94, 0.4));
 }
 
 @keyframes gentle-beat {
@@ -171,5 +200,14 @@
 
   .card-3 .heart-icon {
     font-size: 2.2rem;
+  }
+
+  .card-image {
+    padding: 12px 12px 42px 12px !important;
+  }
+
+  .polaroid-caption {
+    font-size: 1.3rem;
+    bottom: 6px;
   }
 }

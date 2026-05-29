@@ -25,52 +25,56 @@ const InterlockedRings: React.FC = () => {
     container.appendChild(renderer.domElement);
 
     // Lights
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.7);
     scene.add(ambientLight);
 
-    const pointLight1 = new THREE.PointLight(0xff007f, 3, 50);
+    const pointLight1 = new THREE.PointLight(0xfffaf0, 2.5, 50); // Warm highlight
     pointLight1.position.set(2, 2, 2);
     scene.add(pointLight1);
 
-    const pointLight2 = new THREE.PointLight(0x39ff14, 3, 50);
+    const pointLight2 = new THREE.PointLight(0xd4af37, 2, 50); // Yellow Gold highlight
     pointLight2.position.set(-2, -2, 2);
     scene.add(pointLight2);
 
-    // Geometry for the rings
-    const geometry = new THREE.TorusGeometry(0.6, 0.08, 16, 100);
+    const pointLight3 = new THREE.PointLight(0xdfa290, 1.5, 50); // Rose Gold highlight
+    pointLight3.position.set(0, 2, -2);
+    scene.add(pointLight3);
 
-    // Material 1: Pink glow
+    // Ring Geometry (thick, smooth torus)
+    const geometry = new THREE.TorusGeometry(0.55, 0.08, 24, 100);
+
+    // Material 1: Polished Yellow Gold
     const material1 = new THREE.MeshStandardMaterial({
-      color: 0xff007f,
-      roughness: 0.1,
-      metalness: 0.8,
-      emissive: 0xff007f,
-      emissiveIntensity: 0.2,
+      color: 0xd4af37,
+      roughness: 0.12,
+      metalness: 0.9,
+      emissive: 0xd4af37,
+      emissiveIntensity: 0.08,
     });
 
-    // Material 2: Lime glow
+    // Material 2: Polished Rose Gold
     const material2 = new THREE.MeshStandardMaterial({
-      color: 0x39ff14,
-      roughness: 0.1,
-      metalness: 0.8,
-      emissive: 0x39ff14,
-      emissiveIntensity: 0.2,
+      color: 0xdfa290,
+      roughness: 0.12,
+      metalness: 0.9,
+      emissive: 0xdfa290,
+      emissiveIntensity: 0.08,
     });
 
     // Parent group to handle global mouse rotation
     const group = new THREE.Group();
     scene.add(group);
 
-    // Ring 1 (left)
+    // Sibling Ring 1 (Left tilt)
     const ring1 = new THREE.Mesh(geometry, material1);
-    ring1.position.x = -0.35;
-    ring1.rotation.y = 0.5;
+    ring1.position.x = -0.32;
+    ring1.rotation.y = 0.65;
     group.add(ring1);
 
-    // Ring 2 (right)
+    // Sibling Ring 2 (Right tilt)
     const ring2 = new THREE.Mesh(geometry, material2);
-    ring2.position.x = 0.35;
-    ring2.rotation.y = -0.5;
+    ring2.position.x = 0.32;
+    ring2.rotation.y = -0.65;
     group.add(ring2);
 
     // Mouse Move
@@ -99,22 +103,21 @@ const InterlockedRings: React.FC = () => {
 
     const animate = () => {
       animationFrameId = requestAnimationFrame(animate);
-
       const elapsedTime = clock.getElapsedTime();
 
-      // Rotate individual rings
-      ring1.rotation.x = elapsedTime * 0.5;
-      ring1.rotation.y = elapsedTime * 0.8;
+      // Independent rotations of the interlocked bands
+      ring1.rotation.x = elapsedTime * 0.45;
+      ring1.rotation.y = elapsedTime * 0.7;
 
-      ring2.rotation.x = -elapsedTime * 0.6;
-      ring2.rotation.y = -elapsedTime * 0.7;
+      ring2.rotation.x = -elapsedTime * 0.55;
+      ring2.rotation.y = -elapsedTime * 0.65;
 
-      // Group rotation follows mouse movement
-      group.rotation.x += (mouse.current.y * 0.4 - group.rotation.x) * 0.05;
-      group.rotation.y += (mouse.current.x * 0.4 - group.rotation.y) * 0.05;
+      // Group responds to mouse hover smoothly
+      group.rotation.x += (mouse.current.y * 0.35 - group.rotation.x) * 0.05;
+      group.rotation.y += (mouse.current.x * 0.35 - group.rotation.y) * 0.05;
 
-      // Bobbing
-      group.position.y = Math.sin(elapsedTime * 1.5) * 0.08;
+      // Gentle floating bobbing
+      group.position.y = Math.sin(elapsedTime * 1.3) * 0.06;
 
       renderer.render(scene, camera);
     };

@@ -6,8 +6,8 @@ const Footer = () => {
     <footer className={`${styles.footer} section-padding`}>
       <div className={`container ${styles['footer-content']}`}>
         <div className={styles['footer-brand']}>
-          <h2>
-            VICKY'S <span className="text-accent">FAM</span>
+          <h2 className="cursive-font" style={{ fontSize: '2.5rem', fontWeight: 'bold' }}>
+            Vicky's <span className="text-accent">Family</span>
           </h2>
           <p>Preserving memories, honoring legacy.</p>
         </div>

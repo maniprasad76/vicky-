@@ -11,7 +11,7 @@
   padding: 3rem 0;
 }
 
-/* Glowing Neon Vertical Fiber Line */
+/* Glowing Vertical Line in warm gold-rose-blue */
 .timeline-container::before {
   content: '';
   position: absolute;
@@ -21,12 +21,12 @@
   width: 4px;
   background: linear-gradient(
     to bottom,
-    var(--accent-primary) 0%,
-    var(--accent-cyan) 50%,
+    var(--accent-cyan) 0%,
+    var(--accent-primary) 50%,
     var(--accent-secondary) 100%
   );
   border-radius: 4px;
-  box-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
+  box-shadow: 0 0 15px rgba(2, 132, 199, 0.15);
 }
 
 .timeline-item {
@@ -47,7 +47,7 @@
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  background: var(--bg-primary);
+  background: var(--bg-tertiary);
   z-index: 2;
   transition: all var(--transition-fast);
 }
@@ -67,40 +67,41 @@
   box-shadow: 0 0 15px var(--accent-cyan-glow);
 }
 
-/* Timeline Cards */
+/* Timeline Cards in light glassmorphism */
 .timeline-content {
-  padding: 2.5rem;
-  border-radius: 24px !important;
-  background: var(--bg-card);
+  padding: 1.5rem 0;
+  border-radius: 0;
+  border: none !important;
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  box-shadow: none !important;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .card-pink {
-  border-color: rgba(255, 0, 127, 0.25) !important;
-  box-shadow: 0 8px 32px 0 rgba(255, 0, 127, 0.08);
+  border: none !important;
 }
 .card-pink:hover {
-  border-color: var(--accent-primary) !important;
-  box-shadow: 0 8px 32px 0 rgba(255, 0, 127, 0.25) !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
 .card-lime {
-  border-color: rgba(57, 255, 20, 0.25) !important;
-  box-shadow: 0 8px 32px 0 rgba(57, 255, 20, 0.08);
+  border: none !important;
 }
 .card-lime:hover {
-  border-color: var(--accent-secondary) !important;
-  box-shadow: 0 8px 32px 0 rgba(57, 255, 20, 0.25) !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
 .card-cyan {
-  border-color: rgba(0, 240, 255, 0.25) !important;
-  box-shadow: 0 8px 32px 0 rgba(0, 240, 255, 0.08);
+  border: none !important;
 }
 .card-cyan:hover {
-  border-color: var(--accent-cyan) !important;
-  box-shadow: 0 8px 32px 0 rgba(0, 240, 255, 0.25) !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
 .year-watermark {
@@ -108,42 +109,42 @@
   right: -10px;
   bottom: -20px;
   font-size: clamp(5rem, 10vw, 8rem);
-  font-weight: 800;
-  color: rgba(255, 255, 255, 0.02);
+  font-weight: 700;
+  color: rgba(2, 132, 199, 0.04);
   line-height: 1;
   z-index: 0;
   pointer-events: none;
-  font-family: 'Outfit', sans-serif;
+  font-family: 'Dancing Script', cursive;
 }
 
 .timeline-badge {
   display: inline-block;
-  background: var(--bg-tertiary);
+  background: rgba(255, 255, 255, 0.5);
   color: var(--text-primary);
   padding: 6px 18px;
   border-radius: 20px;
   font-size: 0.85rem;
-  font-weight: 800;
+  font-weight: 600;
   margin-bottom: 1.25rem;
   position: relative;
   z-index: 1;
   letter-spacing: 1px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  font-family: 'Outfit', sans-serif;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 .timeline-badge-pink {
-  border-color: rgba(255, 0, 127, 0.4);
+  border-color: rgba(217, 119, 6, 0.25);
   color: var(--accent-primary);
 }
 
 .timeline-badge-lime {
-  border-color: rgba(57, 255, 20, 0.4);
+  border-color: rgba(244, 63, 94, 0.25);
   color: var(--accent-secondary);
 }
 
 .timeline-badge-cyan {
-  border-color: rgba(0, 240, 255, 0.4);
+  border-color: rgba(2, 132, 199, 0.25);
   color: var(--accent-cyan);
 }
 
@@ -153,6 +154,8 @@
   position: relative;
   z-index: 1;
   color: var(--text-primary);
+  font-family: 'Dancing Script', cursive;
+  font-weight: 700;
 }
 
 .timeline-event-desc {

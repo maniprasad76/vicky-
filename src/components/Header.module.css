@@ -10,11 +10,11 @@
 
 .header.scrolled {
   padding: 1rem 0;
-  background: rgba(10, 9, 21, 0.75);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.04);
 }
 
 .header-content {
@@ -24,10 +24,11 @@
 }
 
 .logo {
-  font-family: 'Outfit', sans-serif;
-  font-size: 1.8rem;
-  font-weight: 800;
+  font-family: 'Dancing Script', cursive;
+  font-size: 2.2rem;
+  font-weight: 700;
   letter-spacing: -0.5px;
+  text-transform: none;
 }
 
 .nav-links {
@@ -37,9 +38,9 @@
 }
 
 .nav-link {
-  font-family: 'Outfit', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-weight: 600;
-  font-size: 1.05rem;
+  font-size: 1rem;
   position: relative;
   transition: color var(--transition-fast);
   text-transform: uppercase;
@@ -48,8 +49,8 @@
 }
 
 .nav-link:hover {
-  color: var(--accent-cyan);
-  text-shadow: 0 0 10px var(--accent-cyan-glow);
+  color: var(--accent-primary);
+  text-shadow: 0 0 10px var(--accent-primary-glow);
 }
 
 .nav-link::after {
@@ -59,8 +60,8 @@
   height: 2px;
   bottom: -4px;
   left: 0;
-  background-color: var(--accent-cyan);
-  box-shadow: 0 0 8px var(--accent-cyan);
+  background-color: var(--accent-primary);
+  box-shadow: 0 0 8px var(--accent-primary-glow);
   transition: width var(--transition-smooth);
 }
 
@@ -117,15 +118,15 @@
     width: 80%;
     max-width: 280px;
     height: 100vh;
-    background: rgba(10, 9, 21, 0.95);
+    background: rgba(255, 255, 255, 0.96);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border-left: 1px solid rgba(255, 255, 255, 0.05);
+    border-left: 1px solid rgba(255, 255, 255, 0.4);
     flex-direction: column;
     justify-content: center;
     gap: 2.5rem;
     padding: 2rem;
-    box-shadow: -10px 0 40px rgba(0, 0, 0, 0.8);
+    box-shadow: -10px 0 40px rgba(15, 23, 42, 0.08);
     transition: right var(--transition-smooth);
     z-index: 1000;
   }
@@ -147,6 +148,6 @@
   }
 
   .logo {
-    font-size: 1.4rem;
+    font-size: 1.8rem;
   }
 }

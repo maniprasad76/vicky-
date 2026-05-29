@@ -25,51 +25,69 @@ const FloatingThreeDObject: React.FC = () => {
     container.appendChild(renderer.domElement);
 
     // Lights
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
     scene.add(ambientLight);
 
-    const pointLight1 = new THREE.PointLight(0xff007f, 2, 50);
+    const pointLight1 = new THREE.PointLight(0xd4af37, 3, 50); // Gold Light
     pointLight1.position.set(3, 3, 3);
     scene.add(pointLight1);
 
-    const pointLight2 = new THREE.PointLight(0x00f0ff, 2, 50);
+    const pointLight2 = new THREE.PointLight(0xdfa290, 2.5, 50); // Rose Gold Light
     pointLight2.position.set(-3, -3, 3);
     scene.add(pointLight2);
 
-    const pointLight3 = new THREE.PointLight(0x39ff14, 1.5, 50);
+    const pointLight3 = new THREE.PointLight(0xe8c7c1, 1.5, 50); // Soft Amber
     pointLight3.position.set(0, 3, -2);
     scene.add(pointLight3);
 
-    // Geometry - Icosahedron (crystal structure)
-    const geometry = new THREE.IcosahedronGeometry(1.2, 1);
+    // Create 2D Heart Shape
+    const heartShape = new THREE.Shape();
+    heartShape.moveTo(0, 0.4);
+    heartShape.bezierCurveTo(0, 0.4, -0.05, 0.75, -0.4, 0.75);
+    heartShape.bezierCurveTo(-0.85, 0.75, -0.85, 0.3, -0.85, 0.3);
+    heartShape.bezierCurveTo(-0.85, -0.1, -0.5, -0.42, 0, -0.8);
+    heartShape.bezierCurveTo(0.5, -0.42, 0.85, -0.1, 0.85, 0.3);
+    heartShape.bezierCurveTo(0.85, 0.3, 0.85, 0.75, 0.4, 0.75);
+    heartShape.bezierCurveTo(0.05, 0.75, 0, 0.4, 0, 0.4);
 
-    // Cyberpunk holographic glass-like material
+    // Extrude 2D Shape to 3D
+    const extrudeSettings = {
+      depth: 0.25,
+      bevelEnabled: true,
+      bevelSegments: 6,
+      steps: 2,
+      bevelSize: 0.08,
+      bevelThickness: 0.08,
+    };
+
+    const geometry = new THREE.ExtrudeGeometry(heartShape, extrudeSettings);
+    geometry.center(); // Center rotation origin
+
+    // Polished metallic gold material
     const material = new THREE.MeshStandardMaterial({
-      color: 0xffffff,
-      roughness: 0.1,
+      color: 0xd4af37, // warm yellow gold
+      roughness: 0.15,
       metalness: 0.9,
-      transparent: true,
-      opacity: 0.85,
-      flatShading: true,
+      flatShading: false,
       side: THREE.DoubleSide,
     });
 
     const mesh = new THREE.Mesh(geometry, material);
     scene.add(mesh);
 
-    // Wireframe overlay for the cybertech blueprint style
+    // Elegant outer wireframe shell in rose gold
     const wireframeMat = new THREE.MeshBasicMaterial({
-      color: 0x00f0ff,
+      color: 0xdfa290, // rose gold wireframe
       wireframe: true,
       transparent: true,
-      opacity: 0.4,
+      opacity: 0.25,
     });
     const wireframeMesh = new THREE.Mesh(geometry, wireframeMat);
+    wireframeMesh.scale.set(1.08, 1.08, 1.08); // slightly larger
     mesh.add(wireframeMesh);
 
     // Mouse Interaction
     const handleMouseMove = (e: MouseEvent) => {
-      // Normalize mouse positions
       const rect = container.getBoundingClientRect();
       const x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
       const y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
@@ -78,7 +96,7 @@ const FloatingThreeDObject: React.FC = () => {
 
     window.addEventListener('mousemove', handleMouseMove);
 
-    // Resize
+    // Resize Observer
     const resizeObserver = new ResizeObserver(() => {
       const newWidth = container.clientWidth || 300;
       const newHeight = container.clientHeight || 300;
@@ -94,30 +112,28 @@ const FloatingThreeDObject: React.FC = () => {
 
     const animate = () => {
       animationFrameId = requestAnimationFrame(animate);
-
       const elapsedTime = clock.getElapsedTime();
 
-      // Spin the core
-      mesh.rotation.y += 0.005;
-      mesh.rotation.x += 0.003;
+      // Spin the core heart
+      mesh.rotation.y = elapsedTime * 0.45;
+      mesh.rotation.x = Math.sin(elapsedTime * 0.2) * 0.15; // gentle nodding
 
       // Bobbing
-      mesh.position.y = Math.sin(elapsedTime) * 0.15;
+      mesh.position.y = Math.sin(elapsedTime * 1.2) * 0.12;
 
-      // Interactive tilting based on mouse position
-      mesh.rotation.z += (mouse.current.x * 0.5 - mesh.rotation.z) * 0.05;
-      mesh.rotation.x += (-mouse.current.y * 0.5 - mesh.rotation.x) * 0.05;
+      // Tilt based on mouse
+      mesh.rotation.z += (mouse.current.x * 0.3 - mesh.rotation.z) * 0.05;
+      mesh.rotation.x += (-mouse.current.y * 0.3 - mesh.rotation.x) * 0.05;
 
-      // Pulse scaling
-      const scaleVal = 1 + Math.sin(elapsedTime * 2) * 0.05;
-      mesh.scale.set(scaleVal, scaleVal, scaleVal);
+      // Organic Beating heart simulation: fast expansion, double echo, soft contraction
+      const beatCycle = (elapsedTime * 1.3) % Math.PI;
+      const pulse =
+        Math.pow(Math.sin(beatCycle), 12) * 0.12 + Math.pow(Math.sin(beatCycle * 2), 24) * 0.04;
+      const currentScale = 1.05 + pulse;
+      mesh.scale.set(currentScale, currentScale, currentScale);
 
-      // Color shifts
-      const r = Math.sin(elapsedTime * 0.5) * 0.5 + 0.5;
-      const g = Math.cos(elapsedTime * 0.3) * 0.5 + 0.5;
-      const b = Math.sin(elapsedTime * 0.8) * 0.5 + 0.5;
-      pointLight1.color.setRGB(r, g, b);
-      wireframeMat.color.setRGB(b, r, g);
+      // Pulse wireframe opacity with the beat
+      wireframeMat.opacity = 0.15 + pulse * 0.8;
 
       renderer.render(scene, camera);
     };

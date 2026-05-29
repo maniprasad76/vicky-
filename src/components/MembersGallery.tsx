@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from './MembersGallery.module.css';
-import Interactive3DCard from './Interactive3DCard';
 import ThreePhotoCube from './ThreePhotoCube';
 
 const MembersGallery: React.FC = () => {
@@ -13,7 +12,7 @@ const MembersGallery: React.FC = () => {
             What is <span className="text-accent">Family?</span>
           </h2>
 
-          <Interactive3DCard className={styles['definition-card']} maxTilt={8}>
+          <div className={styles['definition-card']}>
             <div className={styles['definition-header']}>
               <h3 className={styles['defined-word']}>fam·i·ly</h3>
               <div className={styles['definition-meta']}>
@@ -52,7 +51,7 @@ const MembersGallery: React.FC = () => {
                 Family is not an important thing. It's everything.
               </p>
             </div>
-          </Interactive3DCard>
+          </div>
         </div>
 
         {/* Right Column: 3D Photo Cube */}

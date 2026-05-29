@@ -1,7 +1,6 @@
 import React from 'react';
 import styles from './Timeline.module.css';
 import { events } from '../data/timelineData';
-import Interactive3DCard from './Interactive3DCard';
 
 const getCardStyle = (index: number) => {
   const cardStyles = ['card-pink', 'card-lime', 'card-cyan'];
@@ -45,17 +44,14 @@ const Timeline: React.FC = () => {
             <div className={`${styles['timeline-dot']} ${styles[getDotStyle(index)]}`}></div>
 
             {/* 3D Card wrapped content */}
-            <Interactive3DCard
-              className={`${styles['timeline-content']} ${styles[getCardStyle(index)]}`}
-              maxTilt={8}
-            >
+            <div className={`${styles['timeline-content']} ${styles[getCardStyle(index)]}`}>
               <div className={styles['year-watermark']}>{event.year}</div>
               <span className={`${styles['timeline-badge']} ${styles[getBadgeStyle(index)]}`}>
                 {event.year}
               </span>
               <h3 className={styles['timeline-event-title']}>{event.title}</h3>
               <p className={styles['timeline-event-desc']}>{event.description}</p>
-            </Interactive3DCard>
+            </div>
           </div>
         ))}
       </div>

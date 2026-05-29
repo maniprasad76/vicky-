@@ -1,0 +1,72 @@
+.custom-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  background-color: var(--text-primary);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transition:
+    opacity 0.2s ease,
+    width 0.25s ease,
+    height 0.25s ease,
+    background-color 0.25s ease;
+  transform: translate3d(-100px, -100px, 0); /* starts off-screen */
+}
+
+.custom-dot.hover {
+  width: 4px;
+  height: 4px;
+  background-color: var(--accent-secondary);
+  opacity: 0.8;
+}
+
+.custom-dot.hidden {
+  opacity: 0;
+}
+
+.custom-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--text-primary);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transition:
+    opacity 0.2s ease,
+    border-color 0.25s ease,
+    border-width 0.25s ease,
+    background-color 0.25s ease;
+  transform: translate3d(-100px, -100px, 0); /* starts off-screen */
+  box-shadow: 0 0 10px rgba(15, 23, 42, 0.05);
+}
+
+.custom-ring.hover {
+  border-color: var(--accent-secondary);
+  background-color: rgba(244, 63, 94, 0.08);
+  border-width: 2px;
+  box-shadow: 0 0 20px rgba(244, 63, 94, 0.15);
+}
+
+.custom-ring.hidden {
+  opacity: 0;
+}
+
+/* Global body cursor overrides on desktop for a cleaner experience */
+@media (min-width: 1025px) {
+  body {
+    cursor: none !important;
+  }
+  a,
+  button,
+  [role='button'],
+  .btn-cyber,
+  .glass-panel {
+    cursor: none !important;
+  }
+}

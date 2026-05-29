@@ -32,38 +32,35 @@
 }
 
 .siblings-title {
-  font-family: 'Outfit', sans-serif;
+  font-family: 'Dancing Script', cursive;
   font-size: clamp(2.5rem, 5vw, 3.5rem);
-  font-weight: 800;
-  text-transform: uppercase;
+  font-weight: 700;
   margin: 0;
   letter-spacing: -0.02em;
 }
 
 .siblings-subtitle {
-  font-size: 1.2rem;
-  color: var(--accent-cyan);
-  font-weight: 600;
-  text-shadow: 0 0 10px var(--accent-cyan-glow);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  font-size: 1.6rem;
+  color: var(--accent-secondary);
+  font-weight: 700;
+  text-transform: none;
+  font-family: 'Dancing Script', cursive;
+  letter-spacing: 0.02em;
 }
 
 .siblings-card {
-  padding: 2.5rem;
-  border-radius: 20px !important;
-  border-color: rgba(255, 0, 127, 0.15) !important;
+  padding: 1rem 0;
+  border-radius: 0;
+  border: none !important;
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  box-shadow: none !important;
   position: relative;
 }
 
 .siblings-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 4px;
-  background: linear-gradient(90deg, var(--accent-primary), var(--accent-cyan));
+  display: none;
 }
 
 .quote-mark {
@@ -71,7 +68,7 @@
   top: 0rem;
   left: 1.5rem;
   font-size: 4rem;
-  color: rgba(255, 0, 127, 0.15);
+  color: rgba(244, 63, 94, 0.1);
   font-family: serif;
   line-height: 1;
 }
@@ -90,42 +87,60 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2rem;
+  gap: 2.5rem;
 }
 
 .rings-canvas-wrapper {
   width: 100%;
   max-width: 400px;
   aspect-ratio: 1;
-  background: radial-gradient(circle, rgba(57, 255, 20, 0.05) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.4) 0%, transparent 70%);
   border-radius: 24px;
-  border: 1px dashed rgba(255, 255, 255, 0.1);
+  border: 1px dashed rgba(255, 255, 255, 0.5);
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
-  box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.5);
+  box-shadow: inset 0 0 30px rgba(15, 23, 42, 0.03);
 }
 
+/* Polaroid physical photo styling */
 .image-frame-3d {
   width: 100%;
   max-width: 400px;
-  border-radius: 20px !important;
-  border-color: rgba(57, 255, 20, 0.15) !important;
-  padding: 8px;
-  overflow: hidden;
+  background-color: #faf8f5 !important;
+  border-radius: 4px !important;
+  border: 1px solid #eae5dc !important;
+  padding: 16px 16px 56px 16px !important;
+  box-shadow: 0 15px 35px rgba(15, 23, 42, 0.08) !important;
+  position: relative;
+  transform: rotate(-1.5deg);
+  transition: transform var(--transition-bounce) !important;
+}
+
+.image-frame-3d:hover {
+  transform: rotate(0deg) scale(1.02);
 }
 
 .siblings-img {
   width: 100%;
   height: auto;
-  border-radius: 14px;
+  border-radius: 2px;
   display: block;
   transition: transform var(--transition-smooth);
 }
 
-.image-frame-3d:hover .siblings-img {
-  transform: scale(1.03);
+.polaroid-caption {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #4a4238;
+  text-align: center;
+  position: absolute;
+  bottom: 12px;
+  left: 0;
+  width: 100%;
+  letter-spacing: 0.5px;
 }
 
 @media (max-width: 768px) {
@@ -133,8 +148,17 @@
     padding: 1.75rem;
   }
 
-  .rings-canvas-wrapper,
+  .rings-canvas-wrapper {
+    max-width: 320px;
+  }
+
   .image-frame-3d {
     max-width: 320px;
+    padding: 12px 12px 42px 12px !important;
+  }
+
+  .polaroid-caption {
+    font-size: 1.3rem;
+    bottom: 6px;
   }
 }

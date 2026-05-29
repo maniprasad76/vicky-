@@ -29,8 +29,13 @@ const Header = () => {
   return (
     <header className={`${styles.header} ${scrolled ? `${styles.scrolled} glass-panel` : ''}`}>
       <div className={`container ${styles['header-content']}`}>
-        <Link to="/#" className={styles.logo} aria-label="Vicky's Fam Homepage" onClick={closeMenu}>
-          VICKY'S <span className="text-accent">FAM</span>
+        <Link
+          to="/#"
+          className={`${styles.logo} cursive-font`}
+          aria-label="Vicky's Fam Homepage"
+          onClick={closeMenu}
+        >
+          Vicky's <span className="text-accent">Family</span>
         </Link>
 
         <button
